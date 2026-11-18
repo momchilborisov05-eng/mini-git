@@ -1,0 +1,33 @@
+<!doctype html><html><head><meta charset="utf-8"><title>mgit</title><style>
+body { margin:0; width:1280px; height:720px; overflow:hidden; font-family:"Segoe UI",system-ui,sans-serif; background:linear-gradient(135deg,#140904,#3b1a08 52%,#7a3410); color:#fff; position:relative; }
+body::after { content:""; position:absolute; inset:0; background:radial-gradient(circle at 85% 10%, rgba(251,146,60,.22), transparent 45%); pointer-events:none; }
+.left { position:absolute; left:64px; top:60px; width:520px; z-index:1; }
+.badge { display:inline-block; background:rgba(255,255,255,.15); padding:7px 14px; border-radius:99px; font-size:15px; margin-bottom:18px; }
+h1 { font-size:58px; line-height:1.02; margin:0 0 10px; letter-spacing:-1px; }
+.tag { font-size:21px; color:#fed7aa; margin:0 0 26px; }
+ul { list-style:none; padding:0; margin:0 0 26px; font-size:18.5px; line-height:1.75; }
+li::before { content:"✓  "; color:#fdba74; font-weight:700; }
+.stats { display:flex; gap:12px; }
+.stat { background:rgba(0,0,0,.28); border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:12px 16px; }
+.stat b { display:block; font-size:26px; } .stat span { font-size:13.5px; color:#fed7aa; }
+.shot { position:absolute; right:40px; top:70px; width:620px; height:580px; border-radius:14px; overflow:hidden; box-shadow:0 30px 70px rgba(0,0,0,.55); background:#0d1117; border:1px solid rgba(255,255,255,.12); z-index:1; }
+.shot img { width:780px; display:block; }
+</style></head><body>
+<div class="left">
+  <span class="badge">Python stdlib · data structures · algorithms · CLI</span>
+  <h1>mgit: Git, rebuilt in Python</h1>
+  <p class="tag">A version control system written from scratch</p>
+  <ul>
+    <li>SHA-1 object store, byte-compatible with git</li>
+    <li>Staging, commits, branches, tags, reset</li>
+    <li>Own Myers diff and three-way merge</li>
+    <li>Conflict markers and log --graph</li>
+  </ul>
+  <div class="stats">
+    <div class="stat"><b>79</b><span>tests</span></div>
+    <div class="stat"><b>106 ms</b><span>add + commit 1,000 files (Linux)</span></div>
+    <div class="stat"><b>25%</b><span>store vs raw size</span></div>
+  </div>
+</div>
+<div class="shot"><img src="screenshot-terminal.png" alt=""></div>
+</body></html>

@@ -1,0 +1,38 @@
+<!doctype html><html><head><meta charset="utf-8"><title>mgit session</title><style>
+body{margin:0;width:1100px;background:#0d1117;font:15px/1.55 Consolas,"Cascadia Code",monospace;color:#c9d1d9}
+.bar{height:34px;background:#161b22;display:flex;align-items:center;gap:8px;padding:0 14px;border-bottom:1px solid #30363d}
+.bar i{width:12px;height:12px;border-radius:50%;display:block}.bar span{margin-left:12px;color:#8b949e;font:13px "Segoe UI",sans-serif}
+pre{margin:0;padding:18px 22px;white-space:pre}
+.p{color:#58a6ff}.c{color:#e6edf3;font-weight:700}.g{color:#3fb950}.r{color:#f85149}.y{color:#d29922}.m{color:#8b949e}.b{color:#a5d6ff}.cy{color:#39c5cf}
+</style></head><body>
+<div class="bar"><i style="background:#ff5f56"></i><i style="background:#ffbd2e"></i><i style="background:#27c93f"></i><span>mgit demo: pure-Python version control</span></div>
+<pre><span class="p">$</span> <span class="c">mgit init</span>
+Initialized empty mgit repository in ~/demo/.mgit
+<span class="p">$</span> <span class="c">mgit add app.py &amp;&amp; mgit commit -m "Add greeting app"</span>
+[main (root-commit) <span class="y">7f0dd8a</span>] Add greeting app
+<span class="p">$</span> <span class="c">mgit checkout -b shout</span>   <span class="m"># edit app.py</span>
+Switched to a new branch 'shout'
+<span class="p">$</span> <span class="c">mgit diff</span>
+<span class="c">--- a/app.py</span>
+<span class="c">+++ b/app.py</span>
+<span class="cy">@@ -1,5 +1,5 @@</span>
+ def hello(name):
+<span class="r">-    return "Hello " + name</span>
+<span class="g">+    return "HELLO " + name.upper()</span>
+<span class="p">$</span> <span class="c">mgit add app.py &amp;&amp; mgit commit -m "Shout the greeting"</span>
+[shout <span class="y">ebb7232</span>] Shout the greeting
+<span class="p">$</span> <span class="c">mgit checkout main</span>   <span class="m"># add bye(), commit</span>
+[main <span class="y">c9b1c72</span>] Add bye()
+<span class="p">$</span> <span class="c">mgit merge shout</span>
+Auto-merging app.py
+Merge made by the 'three-way' strategy: <span class="y">6323fe0</span>
+<span class="p">$</span> <span class="c">mgit log --oneline --graph</span>
+*   <span class="y">6323fe0</span> <span class="b">(HEAD -&gt; <span class="g">main</span>)</span> Merge branch 'shout' into main
+<span class="r">|</span><span class="g">\</span>
+* <span class="g">|</span> <span class="y">c9b1c72</span> Add bye()
+<span class="r">|</span> * <span class="y">ebb7232</span> <span class="b">(<span class="g">shout</span>)</span> Shout the greeting
+<span class="r">|</span><span class="g">/</span>
+* <span class="y">7f0dd8a</span> Add greeting app
+<span class="p">$</span> <span class="c">mgit checkout shout</span>   <span class="m"># with a local edit</span>
+<span class="r">fatal:</span> cannot switch branches: you have uncommitted changes (app.py)</pre>
+</body></html>
