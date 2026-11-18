@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mgit"
+version = "1.0.0"
+description = "A mini version control system written from scratch in pure Python: content-addressed objects, staging, commits, Myers diff, branches and three-way merges."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Momchil Borisov" }]
+license = { text = "MIT" }
+keywords = ["git", "version-control", "vcs", "myers-diff", "education"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Version Control",
+]
+dependencies = []
+
+[project.scripts]
+mgit = "mgit.cli:main"
+
+[tool.setuptools]
+packages = ["mgit"]
+
+[tool.ruff]
+line-length = 140
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+
+[tool.coverage.run]
+source = ["mgit"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
